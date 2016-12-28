@@ -1,0 +1,7 @@
+{
+    "dev": {
+        "app_function": "dailyprayer.app", 
+        "s3_bucket": "zappa-wji9onuxa",
+        "use_precompiled_packages": false
+    }
+}
