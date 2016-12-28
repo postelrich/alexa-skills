@@ -6,7 +6,7 @@ import requests
 import unidecode
 
 app = Flask(__name__)
-ask = Ask(app, '/aa-prayer')
+ask = Ask(app, '/')
 
 
 def get_aa_prayer():
