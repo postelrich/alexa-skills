@@ -12,7 +12,7 @@ zappa provides a way to deploy python wsgi application to AWS Lambda. This inclu
 
 AWS Lambda requires linux binaries. While zappa tries to override other platform binaries with the correct one on deploy, it's not perfect. I wound up spinning an EC2 with the Amazon AMI just for deploys.
 
-Also zappa depends on virtualenv to gather dependencies and does not support conda at the moment. The is an (open PR to support it)[https://github.com/Miserlou/Zappa/pull/108].
+Also zappa depends on virtualenv to gather dependencies and does not support conda at the moment. The is an [open PR to support it](https://github.com/Miserlou/Zappa/pull/108).
 
 Configure AWS:
 
@@ -36,8 +36,7 @@ zappa init
 zappa deploy dev
 ```
 
-Save url and use when creating the Alexa skill at developer.amazon.com. In the configuration step, select HTTPS Endpoint and paste the url.  At SSL Certificate, select " My development endpoint is a sub-domain of a domain that has a wildcard certificate from a certificate authority
-". NOTE that you must use amazon account used on the echo for creating the skill in order to test.
+Save url and use when creating the Alexa skill at developer.amazon.com. In the configuration step, select HTTPS Endpoint and paste the url.  At SSL Certificate, select "My development endpoint is a sub-domain of a domain that has a wildcard certificate from a certificate authority". NOTE that you must use amazon account used on the echo for creating the skill in order to test.
 
 ## Debugging skill
 
