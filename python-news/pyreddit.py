@@ -12,7 +12,7 @@ def get_headlines():
     url = 'https://reddit.com/r/python/.json?limit=20'
     r = requests.get(url)
     if not r.ok:
-        print(r.status)
+        # print(r.status)
         return statement('Error retrieving python headlines.')
     titles = [unidecode.unidecode(listing['data']['title']) for listing in r.json()['data']['children'] if listing['data']['author'] != 'AutoModerator']
     titles = '... '.join(titles[:10])
@@ -36,5 +36,5 @@ def exit():
     return statement(msg)
 
 
-if __name__ == '__main__':
-    app.run(debug=True)
+# if __name__ == '__main__':
+    # app.run(debug=True)
