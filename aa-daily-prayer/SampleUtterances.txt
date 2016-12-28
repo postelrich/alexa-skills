@@ -1,0 +1,2 @@
+GetPrayerIntent for today's prayer
+GetPrayerIntent for the prayer

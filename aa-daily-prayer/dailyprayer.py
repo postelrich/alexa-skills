@@ -31,12 +31,22 @@ def start_skill():
     return question(msg)
 
 
-@ask.intent("YesIntent")
+@ask.intent("AMAZON.YesIntent")
 def share_headlines():
     return get_aa_prayer()
 
 
-@ask.intent("NoIntent")
+@ask.intent("GetPrayerIntent")
+def get_news_headlines():
+    return get_aa_prayer()
+
+
+@ask.intent("AMAZON.NoIntent")
 def exit():
     msg = "Goodbye."
     return statement(msg)
+
+
+@ask.session_ended
+def session_ended():
+    return "", 200
