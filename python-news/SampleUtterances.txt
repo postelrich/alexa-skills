@@ -1,7 +1,3 @@
-YesIntent yes
-YesIntent sure
-YesIntent yeah
-
-NoIntent no
-NoIntent go away
-NoIntent nah
+GetNewsIntent what is new in python
+GetNewsIntent read me python news
+GetNewsIntent the latest

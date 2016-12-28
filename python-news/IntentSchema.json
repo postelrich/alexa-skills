@@ -1,9 +1,13 @@
 {
     "intents": [{
-        "intent": "YesIntent"
+        "intent": "AMAZON.YesIntent"
     },
                 
     {
-        "intent": "NoIntent"
+        "intent": "AMAZON.NoIntent"
+    },
+    
+    {
+        "intent": "GetNewsIntent"
     }]
 }

@@ -13,7 +13,6 @@ def get_aa_prayer():
     url = 'http://www.aa.org/pages/en_US/daily-reflection'
     r = requests.get(url)
     if not r.ok:
-        print(r.status)
         return statement('Error retrieving daily prayer.')
     soup = BeautifulSoup(r.text, 'html.parser')
     msg = []
@@ -21,10 +20,8 @@ def get_aa_prayer():
     msg.append(soup.find_all('div', {'class': 'daily-reflection-header-content'})[0].text)
     msg.append(soup.find_all('div', {'class': 'daily-reflection-content-title'})[0].text)
     msg.append(soup.find_all('div', {'class': 'daily-reflection-content'})[0].text)
-
     msg = [unidecode.unidecode(m) for m in msg]
     msg = '... '.join(msg)
-    print(msg)
     return statement(msg)
 
 
@@ -43,7 +40,3 @@ def share_headlines():
 def exit():
     msg = "Goodbye."
     return statement(msg)
-
-
-if __name__ == '__main__':
-    app.run(debug=True)

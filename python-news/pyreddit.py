@@ -8,11 +8,12 @@ app = Flask(__name__)
 ask = Ask(app, '/')
 
 
-def get_headlines():
+def get_headlines(retry=False):
     url = 'https://reddit.com/r/python/.json?limit=20'
     r = requests.get(url)
     if not r.ok:
-        # print(r.status)
+        if retry:
+            return get_headlines()
         return statement('Error retrieving python headlines.')
     titles = [unidecode.unidecode(listing['data']['title']) for listing in r.json()['data']['children'] if listing['data']['author'] != 'AutoModerator']
     titles = '... '.join(titles[:10])
@@ -25,16 +26,22 @@ def start_skill():
     return question(msg)
 
 
-@ask.intent("YesIntent")
+@ask.intent("AMAZON.YesIntent")
 def share_headlines():
-    return get_headlines()
+    return get_headlines(retry=True)
 
 
-@ask.intent("NoIntent")
+@ask.intent("GetNewsIntent")
+def get_news_headlines():
+    return get_headlines(retry=True)
+
+
+@ask.intent("AMAZON.NoIntent")
 def exit():
     msg = "Why did you bother me then?"
     return statement(msg)
 
 
-# if __name__ == '__main__':
-    # app.run(debug=True)
+@ask.session_ended
+def session_ended():
+    return "", 200
