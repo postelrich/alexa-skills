@@ -27,7 +27,7 @@ def get_aa_prayer():
 
 @ask.launch
 def start_skill():
-    msg = "Would you like to hear today's prayer?"
+    msg = "Would you like to hear today's reflection?"
     return question(msg)
 
 
@@ -44,6 +44,24 @@ def get_news_headlines():
 @ask.intent("AMAZON.NoIntent")
 def exit():
     msg = "Goodbye."
+    return statement(msg)
+
+
+@ask.intent('AMAZON.HelpIntent')
+def help():
+    msg = "You can ask Daily Prayer for the today's prayer, or, you can say exit. What can I help you with?"
+    return question(msg).reprompt(msg)
+
+
+@ask.intent('AMAZON.StopIntent')
+def stop():
+    msg = "Goodbye"
+    return statement(msg)
+
+
+@ask.intent('AMAZON.CancelIntent')
+def cancel():
+    msg = "Goodbye"
     return statement(msg)
 
 

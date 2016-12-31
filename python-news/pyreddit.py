@@ -42,6 +42,24 @@ def exit():
     return statement(msg)
 
 
+@ask.intent('AMAZON.HelpIntent')
+def help():
+    msg = "You can ask Python news for the latest news, or, you can say exit. What can I help you with?"
+    return question(msg).reprompt(msg)
+
+
+@ask.intent('AMAZON.StopIntent')
+def stop():
+    msg = "Goodbye"
+    return statement(msg)
+
+
+@ask.intent('AMAZON.CancelIntent')
+def cancel():
+    msg = "Goodbye"
+    return statement(msg)
+
+
 @ask.session_ended
 def session_ended():
     return "", 200
